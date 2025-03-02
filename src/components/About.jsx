@@ -12,7 +12,7 @@ export default function About() {
         viewport={{ once: true }}
       >
         <img 
-          src="/assets/pamy.svg" 
+          src="/assets/pamy.png" 
           alt="About Me Illustration" 
           className="w-full h-auto max-w-xs lg:max-w-md mx-auto"
         />
