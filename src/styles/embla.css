@@ -7,7 +7,23 @@
   scroll-snap-type: y mandatory; /* Faz o scroll "snap" no eixo Y */
   -webkit-overflow-scrolling: touch; /* Habilita a rolagem suave para dispositivos móveis */
 }
+/* Personalização da barra de rolagem */
+.embla::-webkit-scrollbar {
+  width: 10px;
+}
 
+.embla::-webkit-scrollbar-track {
+  background: black;
+}
+
+.embla::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+.embla::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
 .embla__container {
   display: flex;
   flex-direction: column;
