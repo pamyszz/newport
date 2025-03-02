@@ -62,27 +62,11 @@ const projects = [
     github: "https://github.com/pamyszz/mapa_carreira"
   }
 ];
-
 export default function Projects() {
-  const [isMobile, setIsMobile] = useState(false);
   const [emblaRef] = useEmblaCarousel({
-    axis: isMobile ? "x" : "y", // Se for mobile, o eixo é "x" (horizontal), senão, "y" (vertical)
-    dragFree: true,
     loop: true,
+    dragFree: true,
   });
-
-  useEffect(() => {
-    // Detecta o tamanho da tela para definir se é mobile
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768); // Ajuste o valor conforme necessário
-    };
-
-    handleResize(); // Chama logo no início
-    window.addEventListener("resize", handleResize);
-
-    // Limpeza do evento ao desmontar o componente
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
 
   return (
     <div className="relative h-screen bg-black px-4 lg:px-28 py-8 my-8 lg:py-16 lg:my-18 overflow-hidden" id="projects">
@@ -92,7 +76,7 @@ export default function Projects() {
 
       <div className="relative flex flex-col items-center overflow-hidden h-full">
         <div className="embla w-full h-full" ref={emblaRef}>
-          <div className="embla__container flex">
+          <div className="embla__container">
             {projects.map((project, index) => (
               <motion.div
                 key={project.id}
