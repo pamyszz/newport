@@ -13,9 +13,9 @@ Welcome to my illustration portfolio! ✨ This project is built with React, Tail
 To run this project locally, follow these steps:
 
 1. Clone the repository:
-   ```sh
-   git clone https://github.com/pamyszz/NEWPortfolio.git
-   ```
+```sh
+   git clone https://github.com/pamyszz/newport.git
+```
 2. Navigate to the project directory:
 ```sh 
 cd NEWPortfolio
