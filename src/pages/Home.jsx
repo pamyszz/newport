@@ -43,7 +43,7 @@ export default function Home() {
             </motion.h2>
             
             <motion.h2 variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0 } }}>
-                <span className="font-extrabold">Fullstack</span>{" "}
+                <span className="font-extrabold">Full-Stack</span>{" "}
                 <span
               className="font-extrabold font-sora text-white"
               style={{
