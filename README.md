@@ -1,6 +1,6 @@
 # Illustration Portfolio 🎨
 <img src="https://imgur.com/cBtdty5.jpg" alt="Portfolio Preview" />
-Welcome to my illustration portfolio! ✨ This project is built with **React**, **Tailwind CSS**, and other modern technologies to showcase my work and design style.
+Welcome to my illustration portfolio! ✨ This project is built with React, Tailwind CSS, and other modern technologies to showcase my work and design style.
 
 ## 🚀 Technologies Used
 - **[React](https://reactjs.org/)** - The JavaScript library for building interactive user interfaces.
