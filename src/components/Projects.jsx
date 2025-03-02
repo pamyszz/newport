@@ -66,19 +66,17 @@ const projects = [
 export default function Projects() {
   const [emblaRef, emblaApi] = useEmblaCarousel({
     axis: "y", // Carrossel na vertical
-    dragFree: true,
+    dragFree: true, // Permite arrastar livremente
     loop: false, // Para evitar rotação infinita
+    dragSpeed: 3, // Ajuste a velocidade do drag se necessário
   });
 
-  // Função para detectar rolagem do mouse
   const handleWheel = useCallback((e) => {
     if (e.deltaY > 0) {
-      // Scroll para baixo (próximo projeto)
       if (emblaApi.canScrollNext()) {
         emblaApi.scrollNext();
       }
     } else if (e.deltaY < 0) {
-      // Scroll para cima (projeto anterior)
       if (emblaApi.canScrollPrev()) {
         emblaApi.scrollPrev();
       }
@@ -91,7 +89,6 @@ export default function Projects() {
     const emblaNode = emblaRef.current;
     emblaNode.addEventListener("wheel", handleWheel);
 
-    // Limpeza do evento ao desmontar o componente
     return () => {
       emblaNode.removeEventListener("wheel", handleWheel);
     };

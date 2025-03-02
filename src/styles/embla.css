@@ -1,41 +1,71 @@
 /* Estilos para a barra de rolagem personalizada */
 .embla {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    overflow-y: scroll; /* Ativa a rolagem vertical */
-  }
-  
-  /* Personalização da barra de rolagem */
-  .embla::-webkit-scrollbar {
-    width: 10px;
-  }
-  
-  .embla::-webkit-scrollbar-track {
-    background: black;
-  }
-  
-  .embla::-webkit-scrollbar-thumb {
-    background: #888;
-    border-radius: 10px;
-  }
-  
-  .embla::-webkit-scrollbar-thumb:hover {
-    background: #555;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll; /* Ativa a rolagem vertical */
+}
+
+/* Personalização da barra de rolagem */
+.embla::-webkit-scrollbar {
+  width: 10px;
+}
+
+.embla::-webkit-scrollbar-track {
+  background: black;
+}
+
+.embla::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+.embla::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+/* Estilos para a barra de rolagem personalizada */
+.embla {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll; /* Ativa a rolagem vertical */
+}
+
+/* Personalização da barra de rolagem */
+.embla::-webkit-scrollbar {
+  width: 10px;
+}
+
+.embla::-webkit-scrollbar-track {
+  background: black;
+}
+
+.embla::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+.embla::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+@media (max-width: 768px) {
+  .embla {
+    overflow-y: hidden; /* Desativa a barra de rolagem vertical em dispositivos móveis */
+    touch-action: pan-y; /* Permite que o usuário deslize com o dedo (swipe) */
   }
 
-  @media (max-width: 768px) {
-    .embla__container {
-      flex-direction: column;
-    }
-  
-    .embla__slide {
-      cursor: default;
-      flex-direction: column;
-      gap: 16px;
-    }
-  
-    .embla__slide img {
-      max-height: 200px;
-    }
+  .embla__container {
+    flex-direction: column;
   }
+
+  .embla__slide {
+    cursor: grab; /* Mostra o ícone de "mão" ao passar o cursor */
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .embla__slide img {
+    max-height: 200px;
+  }
+}
