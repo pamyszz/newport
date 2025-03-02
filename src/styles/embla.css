@@ -23,4 +23,20 @@
   .embla::-webkit-scrollbar-thumb:hover {
     background: #555;
   }
+
+  @media (max-width: 768px) {
+    .embla__container {
+      flex-direction: column;
+    }
+  
+    .embla__slide {
+      cursor: default;
+      flex-direction: column;
+      gap: 16px;
+    }
+  
+    .embla__slide img {
+      max-height: 200px;
+    }
+  }
   
