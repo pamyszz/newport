@@ -23,49 +23,33 @@
 .embla::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
-/* Estilos para a barra de rolagem personalizada */
+
+/* Estilos padrão (para web - vertical) */
 .embla {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  overflow-y: scroll; /* Ativa a rolagem vertical */
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /* Ajuste conforme necessário */
 }
 
-/* Personalização da barra de rolagem */
-.embla::-webkit-scrollbar {
-  width: 10px;
+.embla__container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /* Ajuste conforme necessário */
 }
 
-.embla::-webkit-scrollbar-track {
-  background: black;
-}
-
-.embla::-webkit-scrollbar-thumb {
-  background: #888;
-  border-radius: 10px;
-}
-
-.embla::-webkit-scrollbar-thumb:hover {
-  background: #555;
-}
-
+/* Para mobile (carrossel horizontal) */
 @media (max-width: 768px) {
   .embla {
-    overflow-y: hidden; /* Desativa a barra de rolagem vertical em dispositivos móveis */
-    touch-action: pan-y; /* Permite que o usuário deslize com o dedo (swipe) */
+    flex-direction: row;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
   }
 
   .embla__container {
-    flex-direction: column;
+    flex-direction: row;
   }
 
   .embla__slide {
-    cursor: grab; /* Mostra o ícone de "mão" ao passar o cursor */
-    flex-direction: column;
-    gap: 16px;
-  }
-
-  .embla__slide img {
-    max-height: 200px;
+    min-width: 300px; /* Ajuste conforme necessário */
   }
 }

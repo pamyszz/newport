@@ -1,7 +1,7 @@
 import { TbExternalLink, TbBrandGithub } from "react-icons/tb";
 import { motion } from "framer-motion";
 import useEmblaCarousel from "embla-carousel-react";
-import { useEffect, useCallback } from "react";
+import { useEffect, useState } from "react";
 import "../styles/embla.css";
 
 const projects = [
@@ -64,35 +64,25 @@ const projects = [
 ];
 
 export default function Projects() {
-  const [emblaRef, emblaApi] = useEmblaCarousel({
-    axis: "y", // Carrossel na vertical
-    dragFree: true, // Permite arrastar livremente
-    loop: false, // Para evitar rotação infinita
-    dragSpeed: 3, // Ajuste a velocidade do drag se necessário
+  const [isMobile, setIsMobile] = useState(false);
+  const [emblaRef] = useEmblaCarousel({
+    axis: isMobile ? "x" : "y", // Se for mobile, o eixo é "x" (horizontal), senão, "y" (vertical)
+    dragFree: true,
+    loop: true,
   });
 
-  const handleWheel = useCallback((e) => {
-    if (e.deltaY > 0) {
-      if (emblaApi.canScrollNext()) {
-        emblaApi.scrollNext();
-      }
-    } else if (e.deltaY < 0) {
-      if (emblaApi.canScrollPrev()) {
-        emblaApi.scrollPrev();
-      }
-    }
-  }, [emblaApi]);
-
   useEffect(() => {
-    if (!emblaApi || !emblaRef.current) return;
-
-    const emblaNode = emblaRef.current;
-    emblaNode.addEventListener("wheel", handleWheel);
-
-    return () => {
-      emblaNode.removeEventListener("wheel", handleWheel);
+    // Detecta o tamanho da tela para definir se é mobile
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768); // Ajuste o valor conforme necessário
     };
-  }, [emblaApi, emblaRef, handleWheel]);
+
+    handleResize(); // Chama logo no início
+    window.addEventListener("resize", handleResize);
+
+    // Limpeza do evento ao desmontar o componente
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
     <div className="relative h-screen bg-black px-4 lg:px-28 py-8 my-8 lg:py-16 lg:my-18 overflow-hidden" id="projects">
@@ -102,7 +92,7 @@ export default function Projects() {
 
       <div className="relative flex flex-col items-center overflow-hidden h-full">
         <div className="embla w-full h-full" ref={emblaRef}>
-          <div className="embla__container flex flex-col">
+          <div className="embla__container flex">
             {projects.map((project, index) => (
               <motion.div
                 key={project.id}
