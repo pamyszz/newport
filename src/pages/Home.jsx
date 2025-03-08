@@ -90,10 +90,10 @@ export default function Home() {
               link: "https://www.linkedin.com/in/pamydev"
             }, {
               Icon: IoLogoInstagram,
-              link: "https://www.instagram.com/pamyy_szz"
+              link: "https://www.instagram.com/pamyy_dev"
             }, {
               Icon: BsGithub,
-              link: "https://github.com/pamyszz"
+              link: "https://github.com/pamyy_dev"
             }].map(({ Icon, link }, index) => (
               <motion.a
                 key={index}
